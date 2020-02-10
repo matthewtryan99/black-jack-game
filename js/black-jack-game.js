@@ -11,6 +11,7 @@ let cardCount = 0;
 let stand = 0;
 let dealerHand = [];
 let playerHand = [];
+let changed = [];
 
 let scoreBoardPlayer = document.querySelector("#player-points");
 let scoreBoardDealer = document.querySelector("#dealer-points");
@@ -75,6 +76,7 @@ buttons.addEventListener('click', function(e){
                 deal(cardCount);
             }
             dealCount = 1;
+            
         }
         else
         {
@@ -94,8 +96,14 @@ buttons.addEventListener('click', function(e){
             messageTop.textContent = '';
             messageBottom.textContent = '';
             stand = 0;
-
+            changed.forEach(function(element){
+                element.value = 11;
+            })
         }
+        if (scorePlay == 21)
+            {
+                endGameMessage("You Won", "Blackjack");
+            }
 
     }
     if (e.target.textContent == 'Hit')
@@ -115,7 +123,8 @@ buttons.addEventListener('click', function(e){
                 playerHand.forEach(function(element){
                     if (element.value == 11)
                     {
-                            element.value = 1
+                        element.value = 1
+                        changed.push(element);
                     }
                 })
             }
@@ -164,7 +173,8 @@ buttons.addEventListener('click', function(e){
                     dealerHand.forEach(function(element){
                         if (element.value == 11)
                         {
-                            element.value = 1
+                            // element.value = 1
+                            changed.push(element);
                         }
                     })
                 }
@@ -186,6 +196,10 @@ buttons.addEventListener('click', function(e){
             else if (scoreDeal > scorePlay)
             {
                 endGameMessage("You Lost", "Dealer is closer to 21");
+            }
+            else if (scoreDeal == scorePlay)
+            {
+                endGameMessage("You Tied", "You and the dealer got the same score")
             }
             else
             {
