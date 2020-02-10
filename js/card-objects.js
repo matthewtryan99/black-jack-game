@@ -94,10 +94,24 @@ for(let out = 0; out < 4; out++)
                     image2 = "C";
                     break;
             }
-            let image = image1 + image2 + '.jpg';
+            let image = 'images/' + image1 + image2 + '.jpg';
 
             makeNewCard(value, suit, image);
     }
 }
 
-console.log(cards);
+// console.log(cards);
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+shuffleArray(cards);
+
+// console.log(cards);
