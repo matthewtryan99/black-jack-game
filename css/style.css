@@ -1,0 +1,29 @@
+.h100{
+    min-height: 100vh;
+}
+
+body{
+    background-color: green;
+}
+
+.message{
+    background-color: lightgreen;
+    min-height: 200px;
+    min-width: 100%;
+    border: solid 2px black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.button{
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.dealer{
+    padding-top: 100px;
+}
+
+label{
+    font-size: 20px;
+}
