@@ -102,7 +102,7 @@ for(let out = 0; out < 4; out++)
 
 // console.log(cards);
 
-function shuffleArray(array) {
+var shuffleArray = function(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
