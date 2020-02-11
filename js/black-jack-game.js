@@ -17,6 +17,7 @@ let scoreBoardPlayer = document.querySelector("#player-points");
 let scoreBoardDealer = document.querySelector("#dealer-points");
 let table = document.querySelector("#table");
 let messageBoard = document.createElement('div');
+
 messageBoard.className = "column";
 let messageTop = document.createElement('div')
 messageBoard.append(messageTop);
@@ -136,10 +137,12 @@ buttons.addEventListener('click', function(e){
             if (scorePlay > 21)
             {
                 endGameMessage("You Lose", "You busted by going over 21")
+                stand = 1;
             }
             else if (scorePlay == 21)
             {
                 endGameMessage("You Win", "You hit 21");
+                stand = 1;
             }
 
         }
@@ -213,11 +216,5 @@ buttons.addEventListener('click', function(e){
 
     scoreBoardDealer.textContent = scoreDeal;
     scoreBoardPlayer.textContent = scorePlay;
-
-
-
-
-
-
 
 })
